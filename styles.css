@@ -178,3 +178,83 @@ footer {
   background-color: #8b0000;
   transform: scale(1.05);
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b22222; /* Deep red background */
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+  margin: 10px 0;
+}
+
+.room-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Ensures proper layout for smaller screens */
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.room input[type="radio"] {
+  display: none; /* Hide the radio button */
+}
+
+.room img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room span {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.room input[type="radio"]:checked + img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.confirm-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 15px 30px;
+  background-color: #b22222;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background-color: #8b0000;
+  transform: scale(1.05);
+}

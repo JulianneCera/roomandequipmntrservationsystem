@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date and Time Reservation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link rel="stylesheet" href="styles-datetime.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Polytechnic University of Philippines - Parañaque</h1>
+      <h2>Date and Time of Reservation</h2>
+
+      <div class="calendar">
+        <label for="date">Select a Date:</label><br />
+        <input type="text" id="date" name="date" />
+      </div>
+
+      <div class="time-selector">
+        <label for="start-time">Start Time:</label>
+        <select id="start-time" name="start-time">
+          <option value="07:00">7:00 AM</option>
+          <option value="08:00">8:00 AM</option>
+          <option value="09:00">9:00 AM</option>
+          <option value="10:00">10:00 AM</option>
+          <option value="11:00">11:00 AM</option>
+          <option value="12:00">12:00 PM</option>
+          <option value="13:00">1:00 PM</option>
+          <option value="14:00">2:00 PM</option>
+          <option value="15:00">3:00 PM</option>
+          <option value="16:00">4:00 PM</option>
+          <option value="17:00">5:00 PM</option>
+          <option value="18:00">6:00 PM</option>
+          <option value="19:00">7:00 PM</option>
+          <option value="20:00">8:00 PM</option>
+          <option value="21:00">9:00 PM</option>
+        </select>
+
+        <label for="end-time">End Time:</label>
+        <select id="end-time" name="end-time">
+          <option value="07:00">7:00 AM</option>
+          <option value="08:00">8:00 AM</option>
+          <option value="09:00">9:00 AM</option>
+          <option value="10:00">10:00 AM</option>
+          <option value="11:00">11:00 AM</option>
+          <option value="12:00">12:00 PM</option>
+          <option value="13:00">1:00 PM</option>
+          <option value="14:00">2:00 PM</option>
+          <option value="15:00">3:00 PM</option>
+          <option value="16:00">4:00 PM</option>
+          <option value="17:00">5:00 PM</option>
+          <option value="18:00">6:00 PM</option>
+          <option value="19:00">7:00 PM</option>
+          <option value="20:00">8:00 PM</option>
+          <option value="21:00">9:00 PM</option>
+        </select>
+      </div>
+      <br />
+      <a href="room_num.html" class="back-button"> Previous </a>
+      <button class="confirm-button" onclick="confirmReservation()">
+        Confirm
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      // Initialize Flatpickr
+      flatpickr("#date", {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+      });
+
+      function confirmReservation() {
+        const date = document.getElementById("date").value;
+        const startTime = document.getElementById("start-time").value;
+        const endTime = document.getElementById("end-time").value;
+
+        if (!date) {
+          alert("Please select a date.");
+          return;
+        }
+
+        if (!startTime || !endTime) {
+          alert("Please select both start and end times.");
+          return;
+        }
+
+        if (startTime >= endTime) {
+          alert("End time must be later than start time.");
+          return;
+        }
+
+        alert(`You have reserved:
+Date: ${date}
+Time: ${startTime} - ${endTime}`);
+      }
+    </script>
+  </body>
+</html>

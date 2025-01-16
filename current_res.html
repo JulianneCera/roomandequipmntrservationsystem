@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation Summary</title>
+    <link rel="stylesheet" href="styles-current_res.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Reservation Summary</h1>
+
+      <table>
+        <tr>
+          <th>Room Number</th>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+        </tr>
+        <tr>
+          <td id="room"></td>
+          <td id="date"></td>
+          <td id="start-time"></td>
+          <td id="end-time"></td>
+        </tr>
+      </table>
+
+      <button onclick="window.location.href='room_num.html'">
+        Make Changes
+      </button>
+    </div>
+
+    <script>
+      // Get the stored values from localStorage
+      const room = localStorage.getItem("selectedRoom");
+      const date = localStorage.getItem("date");
+      const startTime = localStorage.getItem("startTime");
+      const endTime = localStorage.getItem("endTime");
+
+      // Display the reservation details
+      document.getElementById("room").textContent = room;
+      document.getElementById("date").textContent = date;
+      document.getElementById("start-time").textContent = startTime;
+      document.getElementById("end-time").textContent = endTime;
+    </script>
+  </body>
+</html>

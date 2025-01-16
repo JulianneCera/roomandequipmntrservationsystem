@@ -95,9 +95,17 @@
           return;
         }
 
+        // Store date and time in localStorage
+        localStorage.setItem("date", date);
+        localStorage.setItem("startTime", startTime);
+        localStorage.setItem("endTime", endTime);
+
         alert(`You have reserved:
-Date: ${date}
-Time: ${startTime} - ${endTime}`);
+    Date: ${date}
+    Time: ${startTime} - ${endTime}`);
+
+        // Redirect to the reservation summary page
+        window.location.href = "current_res.html";
       }
     </script>
   </body>

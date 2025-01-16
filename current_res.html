@@ -10,6 +10,8 @@
     <div class="container">
       <h1>Reservation Summary</h1>
 
+      <!-- Room Reservation Summary -->
+      <h2>Room Reservation</h2>
       <table>
         <tr>
           <th>Room Number</th>
@@ -25,7 +27,21 @@
         </tr>
       </table>
 
-      <button onclick="window.location.href='room_num.html'">
+      <!-- Equipment Reservation Summary -->
+      <h2 id="equipment-heading">Equipment Reserved</h2>
+      <table id="equipment-table">
+        <tr>
+          <th>Equipment</th>
+          <th>Date</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+        </tr>
+        <tbody id="equipment-list">
+          <!-- Dynamic Equipment Rows -->
+        </tbody>
+      </table>
+
+      <button onclick="window.location.href='reservation.html'">
         Make Changes
       </button>
     </div>
@@ -36,12 +52,50 @@
       const date = localStorage.getItem("date");
       const startTime = localStorage.getItem("startTime");
       const endTime = localStorage.getItem("endTime");
+      const equipment =
+        JSON.parse(localStorage.getItem("selectedEquipment")) || [];
 
       // Display the reservation details
       document.getElementById("room").textContent = room;
       document.getElementById("date").textContent = date;
       document.getElementById("start-time").textContent = startTime;
       document.getElementById("end-time").textContent = endTime;
+
+      // Populate equipment list
+      const equipmentList = document.getElementById("equipment-list");
+      const equipmentTable = document.getElementById("equipment-table");
+      const equipmentHeading = document.getElementById("equipment-heading");
+
+      if (equipment.length > 0) {
+        equipment.forEach((item) => {
+          const row = document.createElement("tr");
+
+          // Create table cells
+          const equipmentCell = document.createElement("td");
+          const dateCell = document.createElement("td");
+          const startTimeCell = document.createElement("td");
+          const endTimeCell = document.createElement("td");
+
+          // Assign values to the cells
+          equipmentCell.textContent = item;
+          dateCell.textContent = date;
+          startTimeCell.textContent = startTime;
+          endTimeCell.textContent = endTime;
+
+          // Append cells to the row
+          row.appendChild(equipmentCell);
+          row.appendChild(dateCell);
+          row.appendChild(startTimeCell);
+          row.appendChild(endTimeCell);
+
+          // Append the row to the table body
+          equipmentList.appendChild(row);
+        });
+      } else {
+        // Hide the equipment table and heading if no equipment is reserved
+        equipmentTable.style.display = "none";
+        equipmentHeading.style.display = "none";
+      }
     </script>
   </body>
 </html>

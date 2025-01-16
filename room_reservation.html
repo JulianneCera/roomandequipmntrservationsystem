@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Room Reservation</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room Reservation</title>
+    <link rel="stylesheet" href="styles-room_reservation.css" />
+  </head>
+  <body>
+    <div class="container">
       <h1>Polytechnic University of Philippines - Parañaque</h1>
       <h2>Room Reservation</h2>
-    </header>
+      <form
+        id="roomReservationForm"
+        onsubmit="event.preventDefault(); confirmRoomSelection();"
+      >
+        <div class="room-options">
+          <label class="room">
+            <input type="radio" name="room" value="Classroom" />
+            <img src="classroom.jpg" alt="Classroom" />
+            <span>Classroom</span>
+          </label>
+          <label class="room">
+            <input type="radio" name="room" value="Audio-Visual Room" />
+            <img src="audiovisual.jpg" alt="Audio-Visual Room" />
+            <span>Audio-Visual Room</span>
+          </label>
+          <label class="room">
+            <input type="radio" name="room" value="Laboratories" />
+            <img src="laboratory.jpg" alt="Laboratories" />
+            <span>Laboratories</span>
+          </label>
+        </div>
+        <button type="submit" class="confirm-btn">Confirm</button>
+      </form>
+    </div>
+    <script>
+      function confirmRoomSelection() {
+        const selectedRoom = document.querySelector(
+          'input[name="room"]:checked'
+        );
+        if (selectedRoom) {
+          const roomValue = selectedRoom.value;
 
-    <main>
-      <div class="rooms">
-        <!-- Room Options -->
-        <div class="room">
-          <img src="classroom.jpg" alt="Classroom" class="room-img"  onclick="location.href='classroom-res.html'">
-          <p>Classroom</p>
-        </div>
-        <div class="room">
-          <img src="audiovisual.jpg" alt="Audio-Visual Room" class="room-img">
-          <p>Audio-Visual Room</p>
-        </div>
-        <div class="room">
-          <img src="laboratory.jpg" alt="Laboratories" class="room-img">
-          <p>Laboratories</p>
-        </div>
-      </div>
-      <button class="confirm-btn" onclick="location.href='confirm.html'">Confirm</button>
-    </main>
-  </div>
-</body>
+          // Store the selected room in localStorage
+          localStorage.setItem("selectedRoom", roomValue);
+
+          // Redirect based on the selected room
+          if (roomValue === "Classroom") {
+            window.location.href = "room_num.html"; // Replace with the actual HTML file for Classroom
+          } else if (roomValue === "Audio-Visual Room") {
+            window.location.href = "room-datetime.html"; // Replace with the actual HTML file for Audio-Visual Room
+          } else if (roomValue === "Laboratories") {
+            window.location.href = "room-datetime.html"; // Replace with the actual HTML file for Laboratories
+          }
+        } else {
+          alert("Please select a room before confirming.");
+        }
+      }
+    </script>
+  </body>
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room Reservation</title>
+    <link rel="stylesheet" href="styles-room_num.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Polytechnic University of Philippines - Parañaque</h1>
+      <h2>Room Reservation</h2>
+      <table>
+        <tr>
+          <td onclick="selectRoom(this)">201</td>
+          <td onclick="selectRoom(this)">202</td>
+          <td onclick="selectRoom(this)">203</td>
+          <td onclick="selectRoom(this)">204</td>
+          <td onclick="selectRoom(this)">205</td>
+          <td onclick="selectRoom(this)">206</td>
+          <td onclick="selectRoom(this)">207</td>
+          <td onclick="selectRoom(this)">208</td>
+          <td onclick="selectRoom(this)">209</td>
+          <td onclick="selectRoom(this)">210</td>
+        </tr>
+        <tr>
+          <td onclick="selectRoom(this)">301</td>
+          <td onclick="selectRoom(this)">302</td>
+          <td onclick="selectRoom(this)">303</td>
+          <td onclick="selectRoom(this)">304</td>
+          <td onclick="selectRoom(this)">305</td>
+          <td onclick="selectRoom(this)">306</td>
+          <td onclick="selectRoom(this)">307</td>
+          <td onclick="selectRoom(this)">308</td>
+          <td onclick="selectRoom(this)">309</td>
+          <td onclick="selectRoom(this)">310</td>
+        </tr>
+        <tr>
+          <td onclick="selectRoom(this)">401</td>
+          <td onclick="selectRoom(this)">402</td>
+          <td onclick="selectRoom(this)">403</td>
+          <td onclick="selectRoom(this)">404</td>
+          <td onclick="selectRoom(this)">405</td>
+          <td onclick="selectRoom(this)">406</td>
+          <td onclick="selectRoom(this)">407</td>
+          <td onclick="selectRoom(this)">408</td>
+          <td onclick="selectRoom(this)">409</td>
+          <td onclick="selectRoom(this)">410</td>
+        </tr>
+      </table>
+      <button class="confirm-button" onclick="confirmAndProceed()">
+        Confirm
+      </button>
+    </div>
+
+    <script>
+      let selectedRoom = null;
+
+      function selectRoom(cell) {
+        if (selectedRoom) {
+          selectedRoom.classList.remove("selected");
+        }
+        selectedRoom = cell;
+        cell.classList.add("selected");
+      }
+
+      function confirmAndProceed() {
+        if (selectedRoom) {
+          // Store the selected room in localStorage
+          localStorage.setItem("selectedRoom", selectedRoom.textContent);
+          // Proceed to the next page
+          window.location.href = "room-datetime.html";
+        } else {
+          alert("Please select a room before confirming.");
+        }
+      }
+    </script>
+  </body>
+</html>

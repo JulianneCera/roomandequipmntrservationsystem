@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    height: 100vh;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  h1 {
+    color: maroon;
+  }
+  
+  .calendar {
+    display: inline-block;
+    margin-right: 40px;
+  }
+  
+  .calendar input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .time-selector {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  .time-selector select {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .confirm-button, .back-button{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .confirm-button:hover, .back-button:hover {
+    background-color: #a00000;
+  }
+  

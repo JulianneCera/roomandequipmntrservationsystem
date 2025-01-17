@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Room Reservation</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles-room_reservation.css" />
   </head>
   <body>
     <div class="container">
@@ -31,6 +31,9 @@
             <span>Laboratories</span>
           </label>
         </div>
+        <button type="submit" class="prev-btn" onclick="history.back()">
+          Previous
+        </button>
         <button type="submit" class="confirm-btn">Confirm</button>
       </form>
     </div>
@@ -47,11 +50,10 @@
 
           // Redirect based on the selected room
           if (roomValue === "Classroom") {
-            window.location.href = "room_num.html"; // Replace with the actual HTML file for Classroom
+            window.location.href = "room_num.html";
           } else if (roomValue === "Audio-Visual Room") {
-            window.location.href = "room-datetime.html"; // Replace with the actual HTML file for Audio-Visual Room
-          } else if (roomValue === "Laboratories") {
-            window.location.href = "room-datetime.html"; // Replace with the actual HTML file for Laboratories
+            window.location.href = "room-datetime.html";
+            window.location.href = "room-datetime.html";
           }
         } else {
           alert("Please select a room before confirming.");

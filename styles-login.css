@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #800000; /* Original background color preserved */
+    background-image: url(puppq.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: lighten;
+    background-size: cover;
+    color: #fff; /* Matching text color for contrast */
+    text-align: center;
+  }
+  
+  .container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #800000;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+    color: #e6c43c;
+    margin-bottom: 10px;
+  }
+  
+  .header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f9f9f9;
+    margin-bottom: 20px;
+  }
+  
+  .header p {
+    font-size: 1rem;
+    color: #f9f9f9;
+    line-height: 1.5;
+  }
+  
+  /* Form */
+  .form-container {
+    margin-top: 30px;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .room-num-input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .sign-in-btn, .sign-up-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    background-color: #800000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .sign-in-btn:hover, .sign-up-btn:hover {
+    background-color: #a00000;
+  }

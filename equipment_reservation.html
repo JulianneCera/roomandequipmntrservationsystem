@@ -1,35 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equipment Reservation</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipment Reservation</title>
+    <link rel="stylesheet" href="styles-equipment.css" />
+  </head>
+  <body>
+    <div class="container">
       <h1>Polytechnic University of Philippines - Parañaque</h1>
       <h2>Equipment Reservation</h2>
-    </header>
+      <form
+        id="reservationForm"
+        onsubmit="event.preventDefault(); confirmAndProceed();"
+      >
+        <div class="equipment-options">
+          <label class="equipment">
+            <input
+              type="checkbox"
+              name="equipment"
+              value="speaker"
+              onchange="toggleEquipmentSelection(this, 'Speaker')"
+            />
+            <img src="speaker.jpg" alt="Speaker" />
+            <span>Speaker</span>
+          </label>
+          <label class="equipment">
+            <input
+              type="checkbox"
+              name="equipment"
+              value="projector"
+              onchange="toggleEquipmentSelection(this, 'Projector')"
+            />
+            <img src="projector.jpg" alt="Projector" />
+            <span>Projector</span>
+          </label>
+          <label class="equipment">
+            <input
+              type="checkbox"
+              name="equipment"
+              value="microphone"
+              onchange="toggleEquipmentSelection(this, 'Microphone')"
+            />
+            <img src="mic.jpg" alt="Microphone" />
+            <span>Microphone</span>
+          </label>
+        </div>
+        <button class="prev-btn" onclick="history.back()">Previous</button>
+        <button type="submit" class="confirm-btn">Confirm</button>
+      </form>
+    </div>
+    <script>
+      let selectedEquipment = []; // Array to store selected equipment
 
-    <main>
-      <div class="equipments">
-        <div class="equipment">
-          <img src="speaker.jpg" alt="speaker" class="equipment-img">
-          <p>Speaker</p>
-        </div>
-        <div class="equipment">
-          <img src="mic.jpg" alt="mic" class="equipment-img">
-          <p>Mic</p>
-        </div>
-        <div class="equipment">
-          <img src="projector.jpg" alt="projector" class="equipment-img">
-          <p>Projector</p>
-        </div>
-      </div>
-      <button class="confirm-btn" onclick="location.href='confirm.html'">Confirm</button>
-    </main>
-  </div>
-</body>
+      function toggleEquipmentSelection(checkbox, equipmentName) {
+        if (checkbox.checked) {
+          selectedEquipment.push(equipmentName);
+        } else {
+          selectedEquipment = selectedEquipment.filter(
+            (item) => item !== equipmentName
+          );
+        }
+      }
+
+      function confirmAndProceed() {
+        if (selectedEquipment.length > 0) {
+          // Store the selected equipment in localStorage
+          localStorage.setItem(
+            "selectedEquipment",
+            JSON.stringify(selectedEquipment)
+          );
+          // Proceed to the next page
+          window.location.href = "equip-datetime.html";
+        } else {
+          alert("Please select at least one equipment before confirming.");
+        }
+      }
+    </script>
+  </body>
 </html>

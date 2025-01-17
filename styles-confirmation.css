@@ -1,0 +1,84 @@
+/* Body and General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #800000;
+    background-image: url(puppq.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: lighten;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Container for Confirmation Box */
+  .container {
+    margin: 50px auto;
+    max-width: 400px;
+    padding: 30px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Confirmation Header */
+  .container h1 {
+    font-size: 1.8rem;
+    color: #800000;
+    margin-bottom: 20px;
+  }
+  
+  /* User Info Section */
+  .container h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .container p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Buttons */
+  button {
+    display: inline-block;
+    width: 48%;
+    padding: 10px;
+    margin: 10px 1%;
+    background-color: #800000; /* Maroon background */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #a00000; /* Darker red on hover */
+  }
+  
+  button:active {
+    background-color: #660000; /* Even darker red on click */
+  }
+  
+  /* Ensure Buttons Stay on the Same Line */
+  button + button {
+    margin-left: 10px;
+  }
+  
+  /* Mobile Adjustments */
+  @media (max-width: 600px) {
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  

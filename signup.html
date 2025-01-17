@@ -19,8 +19,7 @@
 
   <main>
     <div class="form-container">
-      <!-- Update the form to submit data to confirmation.php -->
-      <form action="confirmation.php" method="POST">
+      <form id="signupForm">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="Full Name" required>
@@ -77,9 +76,30 @@
           <input type="password" id="password" name="password" placeholder="Password" required>
         </div>
 
-        <button type="submit" class="sign-up-btn">Sign Up</button>
+        <button type="button" class="sign-up-btn" onclick="handleSignUp()">Sign Up</button>
       </form>
     </div>
   </main>
+
+  <script>
+    function handleSignUp() {
+      // Collect form data
+      const formData = {
+        name: document.getElementById("name").value,
+        studentNumber: document.getElementById("student-number").value,
+        program: document.getElementById("program").value,
+        yearSection: document.getElementById("year-section").value,
+        contactNumber: document.getElementById("contact-number").value,
+        birthdate: document.getElementById("birthdate").value,
+        email: document.getElementById("email").value,
+      };
+
+      // Save data to localStorage
+      localStorage.setItem("signupData", JSON.stringify(formData));
+
+      // Redirect to confirmation.html
+      window.location.href = "confirmation.html";
+    }
+  </script>
 </body>
 </html>

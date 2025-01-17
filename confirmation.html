@@ -3,55 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirm Sign Up</title>
-  <link rel="stylesheet" href="styles-signup.css">
-  <script>
-    window.onload = function() {
-      // Retrieve form data from localStorage
-      const formData = JSON.parse(localStorage.getItem('formData'));
-
-      if (formData) {
-        // Display the form data on the confirmation page
-        document.getElementById('name').textContent = formData.name;
-        document.getElementById('student-number').textContent = formData.studentNumber;
-        document.getElementById('program').textContent = formData.program;
-        document.getElementById('year-section').textContent = formData.yearSection;
-        document.getElementById('contact-number').textContent = formData.contactNumber;
-        document.getElementById('birthdate').textContent = formData.birthdate;
-        document.getElementById('email').textContent = formData.email;
-      }
-    };
-
-    function confirmSignUp() {
-      alert("Sign-up confirmed!"); // Add logic to send data to the server here
-      // Clear localStorage after confirmation
-      localStorage.clear();
-    }
-  </script>
+  <title>Confirmation</title>
+  <link rel="stylesheet" href="styles-confirmation.css">
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Confirm Your Sign Up</h1>
-      <p>Please review your details before confirming your sign-up.</p>
-    </header>
+    <h1>Confirmation</h1>
+
+    <!-- Display user info -->
+    <h2>User Information</h2>
+    <p>Full Name: <span id="name"></span></p>
+    <p>Student Number: <span id="studentNumber"></span></p>
+    <p>Program: <span id="program"></span></p>
+    <p>Year and Section: <span id="yearSection"></span></p>
+    <p>Contact Number: <span id="contactNumber"></span></p>
+    <p>Birthdate: <span id="birthdate"></span></p>
+    <p>Email: <span id="email"></span></p>
+
+    <!-- Buttons -->
+    <button onclick="proceedToReservation()">Proceed to Reservation</button>
+    <button onclick="logout()">Log Out</button>
   </div>
 
-  <main>
-    <div class="form-container">
-      <h3>Your Information:</h3>
-      <ul>
-        <li><strong>Full Name:</strong> <span id="name"></span></li>
-        <li><strong>Student Number:</strong> <span id="student-number"></span></li>
-        <li><strong>Program:</strong> <span id="program"></span></li>
-        <li><strong>Year and Section:</strong> <span id="year-section"></span></li>
-        <li><strong>Contact Number:</strong> <span id="contact-number"></span></li>
-        <li><strong>Birthdate:</strong> <span id="birthdate"></span></li>
-        <li><strong>Email:</strong> <span id="email"></span></li>
-      </ul>
-      <button onclick="confirmSignUp()">Confirm Sign Up</button>
-      <button onclick="window.history.back()">Go Back</button>
-    </div>
-  </main>
+  <script>
+    // Load data from localStorage
+    const signupData = JSON.parse(localStorage.getItem("signupData")) || {};
+
+    // Display the data
+    document.getElementById("name").textContent = signupData.name || "N/A";
+    document.getElementById("studentNumber").textContent = signupData.studentNumber || "N/A";
+    document.getElementById("program").textContent = signupData.program || "N/A";
+    document.getElementById("yearSection").textContent = signupData.yearSection || "N/A";
+    document.getElementById("contactNumber").textContent = signupData.contactNumber || "N/A";
+    document.getElementById("birthdate").textContent = signupData.birthdate || "N/A";
+    document.getElementById("email").textContent = signupData.email || "N/A";
+
+    function proceedToReservation() {
+      window.location.href = "reservation.html";
+    }
+
+    function logout() {
+      localStorage.clear();
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>

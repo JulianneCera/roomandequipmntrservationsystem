@@ -51,31 +51,28 @@
       </form>
     </div>
     <script>
-      let selectedEquipment = []; // Array to store selected equipment
-
-      function toggleEquipmentSelection(checkbox, equipmentName) {
-        if (checkbox.checked) {
-          selectedEquipment.push(equipmentName);
-        } else {
-          selectedEquipment = selectedEquipment.filter(
-            (item) => item !== equipmentName
-          );
-        }
-      }
-
       function confirmAndProceed() {
-        if (selectedEquipment.length > 0) {
+        const selectedEquipments = document.querySelectorAll(
+          'input[name="equipment"]:checked'
+        );
+        if (selectedEquipments.length > 0) {
+          const equipmentValues = Array.from(selectedEquipments).map(
+            (equipment) => equipment.value
+          );
+    
           // Store the selected equipment in localStorage
           localStorage.setItem(
             "selectedEquipment",
-            JSON.stringify(selectedEquipment)
+            JSON.stringify(equipmentValues)
           );
-          // Proceed to the next page
-          window.location.href = "equip-datetime.html";
+    
+          // Redirect to the shared room-datetime.html
+          window.location.href = "room-datetime.html";
         } else {
           alert("Please select at least one equipment before confirming.");
         }
       }
     </script>
+    
   </body>
 </html>

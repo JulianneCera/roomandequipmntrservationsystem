@@ -107,6 +107,28 @@
         // Redirect to the reservation summary page
         window.location.href = "current_res.html";
       }
-    </script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectedRoom = localStorage.getItem("selectedRoom");
+    const selectedEquipment = JSON.parse(
+      localStorage.getItem("selectedEquipment")
+    );
+
+    if (selectedRoom) {
+      console.log(`Selected Room: ${selectedRoom}`);
+      // Add logic here to display or process the selected room
+    }
+
+    if (selectedEquipment && selectedEquipment.length > 0) {
+      console.log(`Selected Equipment: ${selectedEquipment.join(", ")}`);
+      // Add logic here to display or process the selected equipment
+    }
+
+    // If no data is present, redirect the user back to a relevant page
+    if (!selectedRoom && (!selectedEquipment || selectedEquipment.length === 0)) {
+      alert("No room or equipment selected. Redirecting...");
+      window.location.href = "room_reservation.html";
+    }
+  });
+</script>
   </body>
 </html>

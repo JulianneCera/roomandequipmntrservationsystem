@@ -5,60 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Room and Equipment Reservation</title>
   <link rel="stylesheet" href="styles-signup.css">
-  <script>
-    function storeDataAndRedirect(event) {
-      event.preventDefault();  // Prevent form submission
-      
-      // Collect form data
-      const name = document.getElementById("name").value;
-      const studentNumber = document.getElementById("student-number").value;
-      const program = document.getElementById("program").value;
-      const yearSection = document.getElementById("year-section").value;
-      const contactNumber = document.getElementById("contact-number").value;
-      const birthdate = document.getElementById("birthdate").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      // Store data in localStorage
-      localStorage.setItem("name", name);
-      localStorage.setItem("studentNumber", studentNumber);
-      localStorage.setItem("program", program);
-      localStorage.setItem("yearSection", yearSection);
-      localStorage.setItem("contactNumber", contactNumber);
-      localStorage.setItem("birthdate", birthdate);
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
-
-      // Redirect to confirmation page
-      window.location.href = "confirmation.html";
-    }
-  </script>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Polytechnic University of Philippines - Parañaque</h1>
+      <h1>Polytechnic University of the Philippines - Parañaque</h1>
       <h2>Room and Equipment Reservation</h2>
-      <p>The reservation system provides the Polytechnic University of the Philippines - Parañaque City Campus with a web-based platform for room and equipment intended for curricular and extracurricular events of the institution.</p>
+      <p>
+        The reservation system provides the Polytechnic University of the Philippines - Parañaque City Campus with a web-based platform for room and equipment intended for curricular and extracurricular events of the institution.
+      </p>
     </header>
   </div>
 
   <main>
     <div class="form-container">
-      <form onsubmit="storeDataAndRedirect(event)">
+      <!-- Update the form to submit data to confirmation.php -->
+      <form action="confirmation.php" method="POST">
         <div class="form-group">
           <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Full Name" required>
+          <input type="text" id="name" name="name" placeholder="Full Name" required>
         </div>
 
         <div class="form-group">
           <label for="student-number">Student Number</label>
-          <input type="text" id="student-number" placeholder="Student Number" required>
+          <input type="text" id="student-number" name="studentNumber" placeholder="Student Number" required>
         </div>
 
         <div class="form-group">
           <label for="program">Program</label>
-          <select id="program" required>
+          <select id="program" name="program" required>
             <option value="" disabled selected>Select your program</option>
             <option value="BSIT">BSIT</option>
             <option value="BSCPE">BSCPE</option>
@@ -69,7 +44,7 @@
 
         <div class="form-group">
           <label for="year-section">Year Level and Section</label>
-          <select id="year-section" required>
+          <select id="year-section" name="yearSection" required>
             <option value="" disabled selected>Select Year and Section</option>
             <option value="1-1">1st Year - Section 1-1</option>
             <option value="1-2">1st Year - Section 1-2</option>
@@ -84,53 +59,27 @@
 
         <div class="form-group">
           <label for="contact-number">Contact Number</label>
-          <input type="tel" id="contact-number" placeholder="Contact Number" required>
+          <input type="tel" id="contact-number" name="contactNumber" placeholder="Contact Number" required>
         </div>
 
         <div class="form-group">
           <label for="birthdate">Birthdate</label>
-          <input type="date" id="birthdate" required>
+          <input type="date" id="birthdate" name="birthdate" required>
         </div>
 
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Email" required>
+          <input type="email" id="email" name="email" placeholder="Email" required>
         </div>
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Password" required>
+          <input type="password" id="password" name="password" placeholder="Password" required>
         </div>
 
         <button type="submit" class="sign-up-btn">Sign Up</button>
       </form>
     </div>
   </main>
-  <!-- Signup Page -->
-<script>
-  document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-
-    const formData = {
-      name: document.getElementById('name').value,
-      studentNumber: document.getElementById('student-number').value,
-      program: document.getElementById('program').value,
-      yearSection: document.getElementById('year-section').value,
-      contactNumber: document.getElementById('contact-number').value,
-      birthdate: document.getElementById('birthdate').value,
-      email: document.getElementById('email').value,
-      password: document.getElementById('password').value,
-    };
-
-    // Store form data in localStorage
-    localStorage.setItem('formData', JSON.stringify(formData));
-
-    // Redirect to the confirmation page
-    window.location.href = 'confirmation.html';
-  });
-</script>
-</body>
-</html>
-
 </body>
 </html>

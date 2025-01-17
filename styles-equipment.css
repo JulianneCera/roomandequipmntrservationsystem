@@ -60,7 +60,7 @@ h2 {
   color: #333;
 }
 
-.confirm-btn {
+.confirm-btn, .prev-btn {
   background-color: #800000;
   color: white;
   padding: 10px 20px;
@@ -71,6 +71,6 @@ h2 {
   transition: background 0.3s;
 }
 
-.confirm-btn:hover {
+.confirm-btn:hover, .prev-btn:hover {
   background-color: #660000;
 }

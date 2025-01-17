@@ -64,7 +64,7 @@ body {
     color: white;
   }
 
-  .confirm-button {
+  .confirm-button, .prev-btn {
     display: inline-block;
     margin-top:50px;
     padding: 10px 20px;
@@ -77,6 +77,6 @@ body {
     cursor: pointer;
   }
 
-  .confirm-button:hover {
+  .confirm-button:hover, .prev-btn:hover {
     background-color: #a00000;
   }

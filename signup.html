@@ -5,6 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Room and Equipment Reservation</title>
   <link rel="stylesheet" href="styles-signup.css">
+  <script>
+    function storeDataAndRedirect(event) {
+      event.preventDefault();  // Prevent form submission
+      
+      // Collect form data
+      const name = document.getElementById("name").value;
+      const studentNumber = document.getElementById("student-number").value;
+      const program = document.getElementById("program").value;
+      const yearSection = document.getElementById("year-section").value;
+      const contactNumber = document.getElementById("contact-number").value;
+      const birthdate = document.getElementById("birthdate").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Store data in localStorage
+      localStorage.setItem("name", name);
+      localStorage.setItem("studentNumber", studentNumber);
+      localStorage.setItem("program", program);
+      localStorage.setItem("yearSection", yearSection);
+      localStorage.setItem("contactNumber", contactNumber);
+      localStorage.setItem("birthdate", birthdate);
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+
+      // Redirect to confirmation page
+      window.location.href = "confirmation.html";
+    }
+  </script>
 </head>
 <body>
   <div class="container">
@@ -17,7 +45,7 @@
 
   <main>
     <div class="form-container">
-      <form>
+      <form onsubmit="storeDataAndRedirect(event)">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" placeholder="Full Name" required>
@@ -30,12 +58,28 @@
 
         <div class="form-group">
           <label for="program">Program</label>
-          <input type="text" id="program" placeholder="Program" required>
+          <select id="program" required>
+            <option value="" disabled selected>Select your program</option>
+            <option value="BSIT">BSIT</option>
+            <option value="BSCPE">BSCPE</option>
+            <option value="BSHM">BSHM</option>
+            <option value="BSOA">BSOA</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="year-section">Year and Section</label>
-          <input type="text" id="year-section" placeholder="Year and Section" required>
+          <label for="year-section">Year Level and Section</label>
+          <select id="year-section" required>
+            <option value="" disabled selected>Select Year and Section</option>
+            <option value="1-1">1st Year - Section 1-1</option>
+            <option value="1-2">1st Year - Section 1-2</option>
+            <option value="2-1">2nd Year - Section 2-1</option>
+            <option value="2-2">2nd Year - Section 2-2</option>
+            <option value="3-1">3rd Year - Section 3-1</option>
+            <option value="3-2">3rd Year - Section 3-2</option>
+            <option value="4-1">4th Year - Section 4-1</option>
+            <option value="4-2">4th Year - Section 4-2</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -61,7 +105,32 @@
         <button type="submit" class="sign-up-btn">Sign Up</button>
       </form>
     </div>
-  </main
-  </div>
+  </main>
+  <!-- Signup Page -->
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const formData = {
+      name: document.getElementById('name').value,
+      studentNumber: document.getElementById('student-number').value,
+      program: document.getElementById('program').value,
+      yearSection: document.getElementById('year-section').value,
+      contactNumber: document.getElementById('contact-number').value,
+      birthdate: document.getElementById('birthdate').value,
+      email: document.getElementById('email').value,
+      password: document.getElementById('password').value,
+    };
+
+    // Store form data in localStorage
+    localStorage.setItem('formData', JSON.stringify(formData));
+
+    // Redirect to the confirmation page
+    window.location.href = 'confirmation.html';
+  });
+</script>
+</body>
+</html>
+
 </body>
 </html>

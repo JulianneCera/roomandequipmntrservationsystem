@@ -110,3 +110,55 @@ body {
   .current-reservation-btn:hover {
     background-color: #218838;
   }
+/* Style for the dropdown (select element) */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Optional: Style for dropdown options */
+select option {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Ensure hover matches the style for input fields */
+select:hover, select:focus {
+  border-color: #a00000;
+  outline: none;
+}
+/* Style for the dropdown (select element) */
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Optional: Style for dropdown options */
+select option {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Ensure hover matches the style for input fields */
+select:hover, select:focus {
+  border-color: #a00000;
+  outline: none;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm Sign Up</title>
+  <link rel="stylesheet" href="styles-signup.css">
+  <script>
+    window.onload = function() {
+      // Retrieve form data from localStorage
+      const formData = JSON.parse(localStorage.getItem('formData'));
+
+      if (formData) {
+        // Display the form data on the confirmation page
+        document.getElementById('name').textContent = formData.name;
+        document.getElementById('student-number').textContent = formData.studentNumber;
+        document.getElementById('program').textContent = formData.program;
+        document.getElementById('year-section').textContent = formData.yearSection;
+        document.getElementById('contact-number').textContent = formData.contactNumber;
+        document.getElementById('birthdate').textContent = formData.birthdate;
+        document.getElementById('email').textContent = formData.email;
+      }
+    };
+
+    function confirmSignUp() {
+      alert("Sign-up confirmed!"); // Add logic to send data to the server here
+      // Clear localStorage after confirmation
+      localStorage.clear();
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Confirm Your Sign Up</h1>
+      <p>Please review your details before confirming your sign-up.</p>
+    </header>
+  </div>
+
+  <main>
+    <div class="form-container">
+      <h3>Your Information:</h3>
+      <ul>
+        <li><strong>Full Name:</strong> <span id="name"></span></li>
+        <li><strong>Student Number:</strong> <span id="student-number"></span></li>
+        <li><strong>Program:</strong> <span id="program"></span></li>
+        <li><strong>Year and Section:</strong> <span id="year-section"></span></li>
+        <li><strong>Contact Number:</strong> <span id="contact-number"></span></li>
+        <li><strong>Birthdate:</strong> <span id="birthdate"></span></li>
+        <li><strong>Email:</strong> <span id="email"></span></li>
+      </ul>
+      <button onclick="confirmSignUp()">Confirm Sign Up</button>
+      <button onclick="window.history.back()">Go Back</button>
+    </div>
+  </main>
+</body>
+</html>

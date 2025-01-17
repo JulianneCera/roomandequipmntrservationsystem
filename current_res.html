@@ -44,6 +44,10 @@
       <button onclick="window.location.href='reservation.html'">
         Make Changes
       </button>
+      
+      <button class="logout-button" onclick="logout()">
+        Log Out
+      </button>
     </div>
 
     <script>
@@ -95,6 +99,13 @@
         // Hide the equipment table and heading if no equipment is reserved
         equipmentTable.style.display = "none";
         equipmentHeading.style.display = "none";
+      }
+
+      function logout() {
+        // Add your logout functionality here
+        localStorage.clear();
+        alert("You have been logged out.");
+        window.location.href = "login.html";
       }
     </script>
   </body>

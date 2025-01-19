@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratories</title>
+    <link rel="stylesheet" href="styles-laboratories.css" />
+    <style>
+      .selected {
+        background-color: #d3f4ff;
+      }
+      td {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Polytechnic University of Philippines - Parañaque</h1>
+      <h2>Laboratories</h2>
+      <form id="lab-form">
+        <table>
+          <thead>
+            <tr>
+              <th>Lab Name</th>
+              <th>Capacity</th>
+              <th>Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Computer Labs -->
+            <tr onclick="selectLab('Computer Lab 1', this)">
+              <td>Computer Lab 1</td>
+              <td>40 Students</td>
+              <td>High-end PCs, Fast Internet, General Software</td>
+            </tr>
+            <tr onclick="selectLab('Computer Lab 2', this)">
+              <td>Computer Lab 2</td>
+              <td>40 Students</td>
+              <td>High-end PCs, Fast Internet, General Software</td>
+            </tr>
+            <!-- Hospitality Management Labs -->
+            <tr onclick="selectLab('Bar and Beverage Management Laboratory', this)">
+              <td>Bar and Beverage Management Laboratory</td>
+              <td>25 Students</td>
+              <td>Bar Equipment, Beverage Tools, Training Area</td>
+            </tr>
+            <tr onclick="selectLab('Food and Beverage Service Laboratory', this)">
+              <td>Food & Beverage Service Laboratory</td>
+              <td>30 Students</td>
+              <td>Dining Tables, Service Equipment, Training Space</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" onclick="history.back()">Previous</button>
+        <button type="button" id="confirm-button" disabled>Confirm</button>
+      </form>
+    </div>
+
+    <script>
+      let selectedLab = null;
+
+      function selectLab(labName, row) {
+        // Store the selected lab name
+        selectedLab = labName;
+
+        // Highlight the selected row
+        const rows = document.querySelectorAll("tbody tr");
+        rows.forEach((r) => r.classList.remove("selected"));
+        row.classList.add("selected");
+
+        // Enable the confirm button
+        document.getElementById("confirm-button").disabled = false;
+      }
+
+      document.getElementById("confirm-button").addEventListener("click", function () {
+        if (selectedLab) {
+          // Save the selected lab to localStorage
+          localStorage.setItem("selectedLab", selectedLab);
+
+          // Redirect to current_res.html
+          window.location.href = "current_res.html";
+        } else {
+          alert("Please select a laboratory before confirming.");
+        }
+      });
+    </script>
+  </body>
+</html>

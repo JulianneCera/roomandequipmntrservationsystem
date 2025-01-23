@@ -1,0 +1,129 @@
+/*CSS for Admin Pages*/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper{
+    padding: 1%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+.table-full{
+    width: 100%;
+}
+
+.table-30{
+    width: 30%;
+}
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+table tr td{
+    padding: 1%;
+}
+
+.btn-primary{
+    background-color: #0096FF;
+    padding: 1%;
+    color: #000401;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary:hover{
+    background-color: #0047AB;
+}
+
+.btn-secondary{
+    background-color: #50C878;
+    padding: 1%;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-secondary:hover{
+    background-color: #228B22;
+}
+
+.btn-danger{
+    background-color: #FF3131;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-danger:hover{
+    background-color: #D2042D;
+}
+
+.success{
+    color: #009E60;
+}
+
+.error{
+    color: #DC143C;
+}
+
+/*CSS for Menu */
+.menu{
+    background-color: #7A0019;
+    border-bottom:1px solid black;
+}
+.menu ul{
+    list-style-type: none;
+}
+
+.menu ul li{
+    display: inline;
+    padding: 1%;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: 	#FFC600;
+}
+
+.menu ul li a:hover{
+    color: #C87C00;
+}
+
+/* CSS for main-content */
+.main-content{
+    background-color: #ecf2f4;
+    padding: 3% 0;
+}
+
+.col-4{
+    width: 15%;
+    background-color: white;
+    margin: 1%;
+    padding: 2%;
+    float: left;
+}
+
+/* CSS for Footer */
+.footer{
+    background-color: #7A0019;
+    color: white;
+}
+
